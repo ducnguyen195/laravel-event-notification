@@ -30,12 +30,13 @@ class PostViewListener implements ShouldQueue
      */
     public function handle(ViewPostEvent $event): void
     {
-//        echo '<pre>';
-//        print_r($event);
-//        echo '<pre>';
-//        exit;
+
         // lấy ra id tác giả bài viết
         $postAu = $event->post->author;
+//        echo '<pre>';
+//        print_r($postAu);
+//        echo '<pre>';
+//        exit;
         // kiểm tra xem có phải tác giả bài viết k -> nếu k phải gửi thông báo bài viết dc xem ...
         if (Auth::id() !== $event->post->user_id){
             // gửi thông báo cho tác giả

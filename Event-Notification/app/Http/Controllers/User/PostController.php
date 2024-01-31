@@ -28,4 +28,15 @@ class PostController extends Controller
         return redirect()->back();
     }
 
+    public function store(Request $request){
+        $input  = $request->all();
+        $new_post = new Post();
+        $new_post ['name'] = $input ['name'];
+        $new_post ['content'] = $input ['content'];
+        $new_post ['user_id'] = 2;
+        $new_post->save();
+        sleep(1);
+    }
+
+
 }
